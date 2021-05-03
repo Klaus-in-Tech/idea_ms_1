@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Idea Form</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container">
+	<h1 class="text-center">IDEA REGISTRATION FORM</h1>
+		<br>
+		<br>
+		<form th:action="@{/register_idea}" method="POST" th:object="${idea}">
+			<div class="form-group">
+				<label>Idea Title</label>
+				<input type="text" class="form-control" placeholder="Enter Idea Title" name="idea_title">
+
+			</div>
+			<div class="form-group">
+				<label>Idea Description</label>
+				<input type="textarea" class="form-control" placeholder="Idea Description" name="idea_description">
+			</div>
+			<div class="form-group">
+				<label>Date of Submission</label>
+				<input type="text" class="form-control" placeholder="Enter Date" name="date_of_submission">
+			</div>
+
+			<button type=" submit" class="btn btn-success">Submit</button>
+			<button type=" button" class="btn btn-warning">Edit</button>
+			 <button type=" button" class="btn btn-primary"  ><a th:href="@{/ideas}">Retrive</a></button>
+			<button type=" button" class="btn btn-danger">Delete</button>
+
+
+		</form>
+
+	</div>
+
+</body>
+
+</html>

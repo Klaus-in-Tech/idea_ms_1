@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Idea Form</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container">
+	<h1 class="text-center">IDEA UPDATE FORM</h1>
+		<br>
+		<br>
+		<form th:action="@{/update_idea/{id}(id=${idea.id})}" method="POST" th:object="${idea}">
+			<div class="form-group">
+				<label>Idea Title</label>
+				<input type="text" class="form-control" placeholder="Enter Idea Title" th:field="*{idea_title}">
+
+			</div>
+			<div class="form-group">
+				<label>Idea Description</label>
+				<textarea class="form-control" placeholder="Idea Description" th:field="*{idea_description}"></textarea>
+			</div>
+			<div class="form-group">
+				<label>Date of Submission</label>
+				<input type="text" class="form-control" placeholder="Enter Date" th:field="*{date_of_submission}">
+			</div>
+
+			<button type=" submit" class="btn btn-success">Update</button>
+
+
+		</form>
+
+	</div>
+
+</body>
+
+</html>

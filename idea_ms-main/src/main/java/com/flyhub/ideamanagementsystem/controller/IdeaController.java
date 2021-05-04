@@ -20,14 +20,12 @@ public class IdeaController {
 	@Autowired
 	private IdeaRepository ideaRepository;
 
-	@Autowired
-	// private IdeaService ideaService;
 
 	// Register idea
 	@PostMapping("/register_idea")
 	public String createIdea(Idea idea) {
 		ideaRepository.save(idea);
-		return ("redirect:/idea_form");
+		return "redirect:/idea_form";
 	}
 
 	@GetMapping("/idea_form")
@@ -60,11 +58,6 @@ public class IdeaController {
 				.orElseThrow(() -> new ResourceNotFoundException("Idea not found for this id :: " + ideaId));
 
 		this.ideaRepository.delete(idea);
-
-		/*
-		 * Map<String, Boolean> response = new HashMap<>(); response.put("deleted",
-		 * Boolean.TRUE);
-		 */
 		model.addAttribute("ideas", ideaRepository.findAll());
 		return "idea_list";
 
